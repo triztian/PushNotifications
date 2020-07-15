@@ -1,0 +1,7 @@
+{
+    "aps": {
+        "content-available": 1
+    },
+    "custom_id": 999,
+    "custom_message": "Background fetch message"
+}

@@ -4,7 +4,11 @@
 #  PushNotifications
 #
 #  Created by Tristian Azuara on 3/15/21.
-#  
+#
+
+#
+# A helper script to manually send a push notification
+#
 
 device_udid=AD7BED71-5CAB-4F60-92AA-3106465D36BC
 

@@ -12,6 +12,9 @@ project=$(find . -name '*.xcodeproj')
 echo "=> Testing project: $project"
 
 device_udid=AD7BED71-5CAB-4F60-92AA-3106465D36BC
+if [ ! -z "$1" ]; then
+    device_udid=$1
+fi
 echo "=> Simulator: $device_udid"
 
 

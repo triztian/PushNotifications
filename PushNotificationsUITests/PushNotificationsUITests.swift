@@ -20,10 +20,11 @@ class PushNotificationsUITests: XCTestCase {
         waitFor(forElement: alertElem, timeout: 10)
 
         // NOTE: Using XCTFail to fail the test will hang `xcodebuild ... test` for some
-        // unknown reason
-        // XCTFail("remove me!!")
-
-        XCTAssert(false, "Remove ME!!!")
+        // unknown reason:
+        //     XCTFail("remove me!!")
+        //
+        // To fail it use:
+        //     XCTAssert(false, "Remove ME!!!")
     }
 }
 

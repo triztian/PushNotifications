@@ -68,16 +68,25 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        debugPrint(#function)
-    }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        debugPrint(#function)
+        let userInfo = notification.request.content.userInfo
+        debugPrint(userInfo)
+
+        let title = "Notification Received"
+        let message = "CustomID: \(userInfo["custom_id"] ?? "")"
+
+        window?.rootViewController?.showAlert(title: title, message: message)
+        completionHandler(.list)
     }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                openSettingsFor notification: UNNotification?) {
-        debugPrint(#function)
+}
+
+extension UIViewController {
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true)
+        }
     }
 }

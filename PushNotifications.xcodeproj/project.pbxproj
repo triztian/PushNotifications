@@ -15,6 +15,10 @@
 		516E1B2025FF1BCA00C1CCEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516E1B1E25FF1BCA00C1CCEE /* LaunchScreen.storyboard */; };
 		516E1B2B25FF1BCB00C1CCEE /* PushNotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516E1B2A25FF1BCB00C1CCEE /* PushNotificationsTests.swift */; };
 		516E1B3625FF1BCB00C1CCEE /* PushNotificationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516E1B3525FF1BCB00C1CCEE /* PushNotificationsUITests.swift */; };
+		51F9B7E425FF53CF009CBB95 /* ca_alert.apns in Resources */ = {isa = PBXBuildFile; fileRef = 51F9B7E025FF53CF009CBB95 /* ca_alert.apns */; };
+		51F9B7E525FF53CF009CBB95 /* ca_only.apns in Resources */ = {isa = PBXBuildFile; fileRef = 51F9B7E125FF53CF009CBB95 /* ca_only.apns */; };
+		51F9B7E625FF53CF009CBB95 /* ca_badge.apns in Resources */ = {isa = PBXBuildFile; fileRef = 51F9B7E225FF53CF009CBB95 /* ca_badge.apns */; };
+		51F9B7E725FF53CF009CBB95 /* ca_sound.apns in Resources */ = {isa = PBXBuildFile; fileRef = 51F9B7E325FF53CF009CBB95 /* ca_sound.apns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,12 @@
 		516E1B3125FF1BCB00C1CCEE /* PushNotificationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushNotificationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		516E1B3525FF1BCB00C1CCEE /* PushNotificationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsUITests.swift; sourceTree = "<group>"; };
 		516E1B3725FF1BCB00C1CCEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51F9B7E025FF53CF009CBB95 /* ca_alert.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ca_alert.apns; sourceTree = "<group>"; };
+		51F9B7E125FF53CF009CBB95 /* ca_only.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ca_only.apns; sourceTree = "<group>"; };
+		51F9B7E225FF53CF009CBB95 /* ca_badge.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ca_badge.apns; sourceTree = "<group>"; };
+		51F9B7E325FF53CF009CBB95 /* ca_sound.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ca_sound.apns; sourceTree = "<group>"; };
+		51F9B7EB25FF5417009CBB95 /* test_push_notifications.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test_push_notifications.sh; sourceTree = "<group>"; };
+		51F9B7EF25FF5DA7009CBB95 /* send_notification_sim.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = send_notification_sim.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +132,24 @@
 		516E1B3425FF1BCB00C1CCEE /* PushNotificationsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				51F9B7DF25FF53CF009CBB95 /* APS Payloads */,
 				516E1B3525FF1BCB00C1CCEE /* PushNotificationsUITests.swift */,
 				516E1B3725FF1BCB00C1CCEE /* Info.plist */,
+				51F9B7EB25FF5417009CBB95 /* test_push_notifications.sh */,
+				51F9B7EF25FF5DA7009CBB95 /* send_notification_sim.sh */,
 			);
 			path = PushNotificationsUITests;
+			sourceTree = "<group>";
+		};
+		51F9B7DF25FF53CF009CBB95 /* APS Payloads */ = {
+			isa = PBXGroup;
+			children = (
+				51F9B7E025FF53CF009CBB95 /* ca_alert.apns */,
+				51F9B7E125FF53CF009CBB95 /* ca_only.apns */,
+				51F9B7E225FF53CF009CBB95 /* ca_badge.apns */,
+				51F9B7E325FF53CF009CBB95 /* ca_sound.apns */,
+			);
+			path = "APS Payloads";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +255,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F9B7E725FF53CF009CBB95 /* ca_sound.apns in Resources */,
+				51F9B7E425FF53CF009CBB95 /* ca_alert.apns in Resources */,
 				516E1B2025FF1BCA00C1CCEE /* LaunchScreen.storyboard in Resources */,
 				516E1B1D25FF1BCA00C1CCEE /* Assets.xcassets in Resources */,
+				51F9B7E625FF53CF009CBB95 /* ca_badge.apns in Resources */,
+				51F9B7E525FF53CF009CBB95 /* ca_only.apns in Resources */,
 				516E1B1B25FF1BC600C1CCEE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,10 +471,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.triztian.mobile.PushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aztristian.mobile.PushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -462,10 +490,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.triztian.mobile.PushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aztristian.mobile.PushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

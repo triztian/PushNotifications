@@ -32,4 +32,7 @@ private func waitFor(forElement element: XCUIElement, timeout: TimeInterval) {
     let predicate = NSPredicate(format: "exists == true")
     let elemExists = XCTNSPredicateExpectation(predicate: predicate, object: element)
     XCTWaiter().wait(for: [elemExists], timeout: timeout)
+    if !element.exists {
+        XCTFail("Element \(element) does not exist")
+    }
 }

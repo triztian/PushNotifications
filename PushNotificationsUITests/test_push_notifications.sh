@@ -25,10 +25,12 @@ cleanup_pids+=("$!")
 echo "-> Log Monitor PID: $!"
 
 # 2. Start only the UI tests and in the background
+uitest_output=$(mktemp)
 xcodebuild -project "$project" -scheme PushNotifications \
     -only-testing:PushNotificationsUITests \
-    -destination "platform=iOS Simulator,id=$device_udid" test &
+    -destination "platform=iOS Simulator,id=$device_udid" test > $uitest_output &
 xcodebuild_tests_pid=$!
+echo "-> Test Output Path: $uitest_output"
 echo "-> Xcodebuild PID: $xcodebuild_tests_pid"
 
 # 2. Wait for the UITests to emit "XCUI-SEND-MESSAGE-XCUI"
@@ -62,4 +64,9 @@ for pid in $pids; do
     kill -9 $pid
 done
 
-exit $xcodebuild_tests_code
+test_succeeded=$(grep '\*\* TEST SUCCEEDED \*\*' $uitest_output)
+if [ -z "$test_succeeded" ]; then
+    echo "** TEST FAILED **" && exit 1
+else
+    echo "** TEST SUCCEEDED **" && exit 0
+fi

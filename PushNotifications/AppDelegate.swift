@@ -38,12 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        debugPrint(#function, error) // error expected in sim.
-    }
-    
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        debugPrint(#function)
+        debugPrint(#function, error) // error expected in simulator
     }
 
     func application(_ application: UIApplication,
@@ -51,14 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         debugPrint(#function, userInfo)
         completionHandler(.newData)
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        debugPrint(#function)
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        debugPrint(#function)
     }
 }
 
